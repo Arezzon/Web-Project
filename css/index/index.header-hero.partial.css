@@ -1,22 +1,26 @@
-/* --- Hero Section Styles --- */
+/* --- Hero Section --- */
 .hero {
-  background: url("https://res2.weblium.site/res/5ec6997a1d33f4002146b5a5/5ecb8d981d33f400215542a8") 44.69% 53.19% / cover no-repeat, var(--ui-dark-shade-color);
-  padding: 100px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  position: relative;
+  background:
+    url("/img/ryan_background.png") 44.69% 65% / cover no-repeat,
+    var(--ui-dark-shade-color);
+  background-size: 109%;
 
+  @media (max-width: 768px) {
+    background-image: none;
+    background-color: var(--ui-dark-shade-color);
+  }
 
+  /* Layout and other properties moved to sub-elements */
   .hero__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 100px var(--spacing-sm);
+    width: 100%;
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: row; /* Row layout for grid emulation */
-    align-items: center;
-    justify-content: flex-start; /* Push content to the left */
-    width: 100%;
   }
 
   .hero__content {
@@ -25,7 +29,7 @@
     padding: 0 var(--spacing-md);
     text-align: center; /* Center text within its column */
 
-    @media (max-width: 992px) {
+    @media (max-width: 768px) {
       max-width: 100%; /* Full width on smaller tablets and mobiles */
     }
   }
@@ -102,14 +106,22 @@
     }
   }
 
-  /* Hero bottom icon */
+  /* Hero bottom icon - Positioned at the very bottom of the section */
   .hero__footer {
-    margin-top: 80px;
+    position: absolute;
+    bottom: 1px;
+    left: 30%;
+    transform: translateX(-50%);
+    z-index: 3;
+
+    @media (max-width: 768px) {
+      left: 50%;
+    }
 
     .hero__icon {
-      width: 10px;
+      width: 12px;
       height: auto;
-      opacity: 0.6;
+      opacity: 0.8;
       animation: bounce 2s infinite;
     }
   }
