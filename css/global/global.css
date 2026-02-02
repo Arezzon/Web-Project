@@ -1,0 +1,81 @@
+/* PT Sans and Playfair Display fonts */
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: var(--ui-text-font-family);
+  font-weight: var(--ui-text-font-weight);
+  font-size: var(--ui-text-size);
+  color: var(--ui-text-color);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--ui-content-container);
+  margin: 0 auto;
+}
+
+:root {
+  scroll-behavior: smooth;
+
+  --ui-content-container: 1200px;
+
+  --ui-light-shade-color: #ffffff;
+  --ui-light-accent-color: #bababa;
+  --ui-brand-color: #c09a64;
+  --ui-dark-accent-color: #989898;
+  --ui-dark-shade-color: #111111;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --header-height: 120px;
+  --container-max-width: 1200px;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+
+  --ui-link-hover-color: #c09a64;
+  --ui-link-hover-color-light: #c09a64;
+  --ui-link-color: #181818;
+  --ui-link-color-light: #ffffff;
+  --ui-link-font-style: normal;
+  --ui-link-text-decoration: none;
+  --ui-link-coefficients-320-px: 1;
+  --ui-link-letter-spacing: 0;
+  --ui-link-line-height: 1.2;
+
+  --ui-text-text-transform: none;
+  --ui-text-font-weight: 400;
+  --ui-text-font-family: "PT Sans", sans-serif;
+  --ui-text-size: 17px;
+  --ui-text-color: #454545;
+  --ui-text-color-light: #b8b8b8;
+  --ui-text-font-style: normal;
+  --ui-text-text-decoration: none;
+  --ui-text-coefficients-320-px: 1;
+  --ui-text-letter-spacing: 0;
+  --ui-text-line-height: 1.7;
+
+  --ui-button-text-transform: uppercase;
+  --ui-button-font-family: "PT Sans", sans-serif;
+  --ui-button-font-weight: 700;
+  --ui-button-font-style: initial;
+  --ui-button-text-decoration: none;
+  --ui-button-coefficients-320-px: 1;
+  --ui-button-letter-spacing: 0.02;
+  --ui-button-line-height: 1.2;
+}

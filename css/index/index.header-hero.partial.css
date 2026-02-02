@@ -1,0 +1,117 @@
+/* --- Hero Section Styles --- */
+.hero {
+  background-color: var(--ui-dark-shade-color);
+  padding: 100px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero__content {
+    max-width: 800px;
+    width: 100%;
+    padding: 0 var(--spacing-md);
+  }
+
+  /* Category text style */
+  .hero__category {
+    color: var(--ui-brand-color);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  /* Hero Main Title */
+  .hero__title {
+    font-family: "Playfair Display", serif;
+    font-size: 72px;
+    color: var(--ui-light-shade-color);
+    margin-bottom: 25px;
+    font-weight: 400;
+
+    @media (max-width: 768px) {
+      font-size: 48px;
+    }
+  }
+
+  /* Divider Styling */
+  .hero__divider {
+    margin: 0 auto 30px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  /* Subtitle/Description */
+  .hero__subtitle {
+    color: var(--ui-light-accent-color);
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Action Button Styling */
+  .hero__btn {
+    display: inline-block;
+    padding: 18px 45px;
+    border: 1px solid var(--ui-light-accent-color);
+    color: var(--ui-light-shade-color);
+    text-decoration: none;
+    font-family: var(--ui-button-font-family);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    transition: all var(--transition-speed) ease;
+
+    &:hover {
+      background-color: var(--ui-brand-color);
+      border-color: var(--ui-brand-color);
+      color: var(--ui-dark-shade-color);
+    }
+  }
+
+  /* Hero bottom icon */
+  .hero__footer {
+    margin-top: 80px;
+
+    .hero__icon {
+      width: 32px;
+      height: auto;
+      opacity: 0.6;
+      animation: bounce 2s infinite;
+    }
+  }
+}
+
+/* Scroll animation for the icon */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
