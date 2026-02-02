@@ -1,9 +1,6 @@
 /* --- Header Navigation Styles --- */
 .header_nav {
   background-color: var(--ui-dark-shade-color);
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   min-height: var(--header-height);
   display: flex;
