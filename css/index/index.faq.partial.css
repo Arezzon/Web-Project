@@ -1,0 +1,158 @@
+.faq {
+  /*
+    Block: .faq
+    - This file uses nesting-style selectors for readability.
+  */
+
+  padding: 60px 0 130px 0;
+  background-color: var(--ui-dark-shade-color);
+  interpolate-size: allow-keywords;
+
+  /* Inner wrapper */
+  & .faq__inner {
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
+  }
+
+  /* Header / title */
+  & .faq__header {
+    text-align: center;
+    grid-column: 1 / -1;
+  }
+
+  & .faq__title {
+    color: var(--ui-light-shade-color);
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
+    font-weight: 700;
+  }
+
+  & .faq__divider {
+    color: var(--ui-dark-accent-color);
+    display: flex;
+    justify-content: center;
+  }
+
+  & .faq__subtitle {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    color: var(--ui-light-accent-color);
+  }
+
+  /* Accordion container */
+  .faq__accordion {
+    margin-top: 50px;
+    grid-column: 2;
+
+    /* Individual accordion item (details element) */
+    .faq__accordion-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Border line under each item */
+
+      /* Content inside accordion item */
+      .faq__accordion-item-content {
+        padding-bottom: 24px;
+        color: var(--ui-text-color-light);
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 95%;
+      }
+
+      .faq__accordion-item-title {
+        cursor: pointer;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 24px;
+        padding: 20px 0; /* Vertical padding for clickable area */
+        color: var(--ui-brand-color);
+        /* Alignment: text on left, icon on right */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none; /* Remove standard marker in most browsers */
+      }
+
+      /* Remove default disclosure triangle in Safari/Chrome */
+      .faq__accordion-item-title::-webkit-details-marker {
+        display: none;
+      }
+
+      /* Create PLUS icon using CSS gradients */
+      .faq__accordion-item-title::after {
+        /* 1. Remove text and create empty block for icon */
+        content: "";
+        display: block;
+        width: 15px; /* Icon width */
+        height: 15px; /* Icon height */
+        margin-left: 15px;
+
+        /* 2. Draw two lines (vertical and horizontal) using gradients */
+        /* currentColor inherits the text color from parent element */
+        background-image:
+          linear-gradient(white, white),
+          /* Vertical line */ linear-gradient(white, white); /* Horizontal line */
+
+        background-position: center;
+        background-repeat: no-repeat;
+
+        /* 3. Set line dimensions:
+               First value: 2px width, 100% height (vertical line)
+               Second value: 100% width, 2px height (horizontal line)
+            */
+        background-size:
+          1.7px 100%,
+          100% 1.7px;
+
+        /* 4. Add smooth transition for rotation and size change */
+        transition:
+          transform 0.3s ease,
+          background-size 0.3s ease;
+      }
+    }
+
+    /* -- OPEN STATE LOGIC -- */
+    /* When details is open (has open attribute), change plus icon to MINUS */
+    .faq__accordion-item[open] .faq__accordion-item-title::after {
+      /* "Flatten" the vertical line (height becomes 0%), leaving only horizontal line (minus) */
+      background-size:
+        1.7px 0%,
+        100% 1.7px;
+    }
+
+    .faq__accordion-item::details-content {
+      height: 0;
+      overflow: hidden;
+      transition:
+        height 0.3s,
+        content-visibility 0.3s;
+      transition-behavior: allow-discrete;
+    }
+
+    .faq__accordion-item[open]::details-content {
+      height: auto;
+    }
+  }
+
+  .faq__answer {
+    padding-bottom: 24px;
+
+    p {
+      margin: 0;
+      color: var(--ui-text-color-light);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+  }
+}
+
+/* Responsive: on mobile, accordion takes full width */
+@media (max-width: 768px) {
+  .faq .faq__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .faq .faq__accordion {
+    grid-column: auto;
+  }
+}

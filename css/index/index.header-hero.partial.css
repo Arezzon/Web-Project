@@ -1,7 +1,7 @@
 /* --- Hero Section --- */
 .hero {
   background:
-    url("/img/ryan_background.png") 44.69% 65% / cover no-repeat,
+    url("../../img/ryan_background.png") 44.69% 65% / cover no-repeat,
     var(--ui-dark-shade-color);
   background-size: 109%;
 

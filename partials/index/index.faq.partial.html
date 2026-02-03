@@ -1,0 +1,100 @@
+<!--
+  Faq section partial
+	- Simple BEM structure: `.faq` block with nested `__*` elements
+	- Contains a small responsive carousel driven by JS (module: js/carousel.js)
+	- Images are expected to be portrait-style and will be cropped to 1:1 via CSS
+	Note: This file is a partial meant to be included into the page.
+-->
+
+<section class="faq" id="faq">
+  <div class="faq__inner container">
+    <header class="faq__header">
+      <!-- Header / title for the section -->
+      <h2 class="faq__title">FAQ</h2>
+      <div class="faq__divider">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="3000px"
+          height="31"
+          style="width: 5%"
+        >
+          <path
+            d="M0 15.5 L3000 15.5"
+            style="fill: none; stroke: #bababa; stroke-width: 1px"
+          ></path>
+        </svg>
+      </div>
+      <p class="faq__subtitle">
+        IF YOU HAVE ANY QUESTIONS, PLEASE BROWSE THROUGH THE SECTION BELOW.
+      </p>
+    </header>
+
+    <div class="faq__accordion">
+      <details class="faq__accordion-item" name="faq-group">
+        <summary class="faq__accordion-item-title">
+          Does Ryan shoot only in New York?
+        </summary>
+        <div class="faq__accordion-item-content faq__answer">
+          <p>
+            Most of Ryan's projects are in New York but shooting is possible in other cities of the USA and other countries upon request.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__accordion-item" name="faq-group">
+        <summary class="faq__accordion-item-title">
+          How long does the editing take?
+        </summary>
+        <div class="faq__accordion-item-content faq__answer">
+          <p>
+            It all depends on the amount of footage and the number of photos that go through retouching.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__accordion-item" name="faq-group">
+        <summary class="faq__accordion-item-title">
+          What does Ryan shoot?
+        </summary>
+        <div class="faq__accordion-item-content faq__answer">
+          <p>
+            Ryan is a real guru of fashion, event, commercial photography, and portraits.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__accordion-item" name="faq-group">
+        <summary class="faq__accordion-item-title">
+          How to schedule a shooting?
+        </summary>
+        <div class="faq__accordion-item-content faq__answer">
+          <p>
+            Fill out the form below or contact Ryan directly. Tell which date you need, and Ryan will do his best to find a time slot for you.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__accordion-item" name="faq-group">
+        <summary class="faq__accordion-item-title">
+          What if I have a creative idea for shooting?
+        </summary>
+        <div class="faq__accordion-item-content faq__answer">
+          <p>
+            Ryan is open for inquires and interesting opportunities. TFP shoots are possible if your idea is really creative. 
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__accordion-item" name="faq-group">
+        <summary class="faq__accordion-item-title">
+          Where can I find Ryan's works?
+        </summary>
+        <div class="faq__accordion-item-content faq__answer">
+          <p>
+            Ryan's works are published in different fashion magazines: Haper's Bazaar, Vogue, Cosmopolitan, and many others.
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
