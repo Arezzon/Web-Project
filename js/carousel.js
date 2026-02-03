@@ -1,4 +1,28 @@
-export function initLastWorksCarousel() {
+/**
+ * Universal Carousel Module
+ * 
+ * Features:
+ * - Infinite loop (clones slides)
+ * - Responsive (adjusts slides count based on viewport)
+ * - Touch/Mouse drag support
+ * - Autoplay with pause on hover
+ * - Configurable via data attributes
+ * 
+ * Usage:
+ * Add `data-carousel` to container element with optional:
+ * - data-autoplay="true|false"
+ * - data-autoplay-speed="4000" (ms)
+ * - data-slides-mobile="1" (number of slides on mobile, default: 1)
+ * - data-slides-desktop="2" (number of slides on desktop, default: 2)
+ * 
+ * Required child elements:
+ * - [data-carousel-track] - slides container
+ * - [data-carousel-viewport] - visible area
+ * - [data-carousel-prev] - previous button (optional)
+ * - [data-carousel-next] - next button (optional)
+ */
+
+export function initCarousel() {
   const carousels = document.querySelectorAll("[data-carousel]");
   if (!carousels.length) return;
 
@@ -11,7 +35,12 @@ export function initLastWorksCarousel() {
 
     let slides = Array.from(track.children);
     const originalCount = slides.length;
-    let slidesToShow = window.innerWidth < 768 ? 1 : 2;
+    
+    // Read slides count configuration from data attributes
+    const slidesMobile = Number(carousel.getAttribute("data-slides-mobile")) || 1;
+    const slidesDesktop = Number(carousel.getAttribute("data-slides-desktop")) || 2;
+    
+    let slidesToShow = window.innerWidth < 768 ? slidesMobile : slidesDesktop;
     let currentIndex = slidesToShow; // Start after prepended clones
     let isTransitioning = false;
     let autoplayTimer = null;
@@ -27,17 +56,6 @@ export function initLastWorksCarousel() {
       // Clear existing clones if any (e.g., on re-init)
       const existingClones = track.querySelectorAll(".is-clone");
       existingClones.forEach((clone) => clone.remove());
-
-      const startClones = slides.map((s) => {
-        const clone = s.cloneNode(true);
-        clone.classList.add("is-clone");
-        return clone;
-      });
-      const endClones = slides.map((s) => {
-        const clone = s.cloneNode(true);
-        clone.classList.add("is-clone");
-        return clone;
-      });
 
       // Prepend last items and append first items
       slides.slice(-slidesToShow).reverse().forEach(slide => {
@@ -90,11 +108,14 @@ export function initLastWorksCarousel() {
       isTransitioning = false;
       const totalItems = track.children.length;
       
+      // Jump forward: when we reach the cloned slides at the end
       if (currentIndex >= totalItems - slidesToShow) {
         currentIndex = slidesToShow;
         update(false);
-      } else if (currentIndex < slidesToShow) {
-        currentIndex = totalItems - (slidesToShow * 2);
+      } 
+      // Jump backward: when we reach the cloned slides at the beginning
+      else if (currentIndex < slidesToShow) {
+        currentIndex = currentIndex + originalCount;
         update(false);
       }
     };
@@ -198,7 +219,7 @@ export function initLastWorksCarousel() {
     carousel.addEventListener("mouseleave", startAutoplay);
 
     window.addEventListener("resize", () => {
-      slidesToShow = window.innerWidth < 768 ? 1 : 2;
+      slidesToShow = window.innerWidth < 768 ? slidesMobile : slidesDesktop;
       // Re-clone to match new slidesToShow if needed, 
       // but for simplicity we can just update layout
       update(false);

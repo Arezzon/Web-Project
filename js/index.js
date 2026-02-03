@@ -1,7 +1,7 @@
 function init() {
   import("./global.header-burger.js");
-  import("./index.lastworks.carousel.js").then(({ initLastWorksCarousel }) => {
-    initLastWorksCarousel();
+  import("./carousel.js").then(({ initCarousel }) => {
+    initCarousel();
   });
 }
 

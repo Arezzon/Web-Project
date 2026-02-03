@@ -1,17 +1,17 @@
 <!--
-	Last Works section partial
-	- Simple BEM structure: `.lastworks` block with nested `__*` elements
+  Works section partial
+	- Simple BEM structure: `.works` block with nested `__*` elements
 	- Contains a small responsive carousel driven by JS (module: js/carousel.js)
 	- Images are expected to be portrait-style and will be cropped to 3:4 via CSS
 	Note: This file is a partial meant to be included into the page.
 -->
 
-<section class="lastworks" id="lastworks">
-  <div class="lastworks__inner container">
-    <header class="lastworks__header">
+<section class="works" id="works">
+  <div class="works__inner container">
+    <header class="works__header">
       <!-- Header / title for the section -->
-      <h2 class="lastworks__title">Latest Works</h2>
-      <div class="lastworks__divider">
+      <h2 class="works__title">Portfolio</h2>
+      <div class="works__divider">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="3000px"
@@ -24,61 +24,70 @@
           ></path>
         </svg>
       </div>
-      <p class="lastworks__subtitle">
-        RYAN'S PASSION IS PHOTOSHOOTS FOR LOOKBOOKS AND COMMERCIALS.
+      <p class="works__subtitle">
+        EVERY FRAME IS IMPORTANT. EVERY PHOTOSHOOT IS ART.
       </p>
     </header>
 
     <!-- Carousel wrapper: `data-carousel` is used by the JS module to initialize behavior -->
-    <div class="lastworks__content">
+    <div class="works__content">
       <div
-        class="lastworks__carousel"
+        class="works__carousel"
         data-carousel
         data-autoplay="true"
         data-autoplay-speed="4000"
         data-slides-mobile="1"
-        data-slides-desktop="2"
+        data-slides-desktop="3"
       >
         <!-- Prev button: `data-carousel-prev` hooks to JS -->
         <button
-          class="lastworks__arrow"
+          class="works__arrow"
           type="button"
           data-carousel-prev
           aria-label="Previous slide"
         >
-          <svg class="lastworks__arrow-icon is-prev" viewBox="0 0 30 30">
+          <svg class="works__arrow-icon is-prev" viewBox="0 0 30 30">
             <path
               d="M19.533 15l-9.1-9.45c-.577-.6-.577-1.5 0-2.1.578-.6 1.445-.6 2.023 0l10.11 10.5c.29.3.434.75.434 1.05 0 .45-.144.75-.433 1.05l-10.111 10.5c-.29.3-.578.45-1.012.45-.433 0-.722-.15-1.01-.45-.578-.6-.578-1.5 0-2.1l9.1-9.45z"
             ></path>
           </svg>
         </button>
 
-        <div class="lastworks__viewport" data-carousel-viewport>
+        <div class="works__viewport" data-carousel-viewport>
           <!-- Track holds slides. `data-carousel-track` is used by the JS to move items -->
-          <div class="lastworks__track" data-carousel-track>
-            <article class="lastworks__slide">
-              <div class="lastworks__media">
+          <div class="works__track" data-carousel-track>
+            <article class="works__slide">
+              <div class="works__media">
                 <img
-                  src="img/lastworks/girl_1.png"
-                  alt="Illustration 1"
+                  src="img/works/portfolio_1.png"
+                  alt="Portfolio 1"
                   loading="lazy"
                 />
               </div>
             </article>
-            <article class="lastworks__slide">
-              <div class="lastworks__media">
+            <article class="works__slide">
+              <div class="works__media">
                 <img
-                  src="img/lastworks/girl_2.png"
-                  alt="Illustration 2"
+                  src="img/works/portfolio_2.png"
+                  alt="Portfolio 2"
                   loading="lazy"
                 />
               </div>
             </article>
-            <article class="lastworks__slide">
-              <div class="lastworks__media">
+            <article class="works__slide">
+              <div class="works__media">
                 <img
-                  src="img/lastworks/girl_3.png"
-                  alt="Illustration 3"
+                  src="img/works/portfolio_3.png"
+                  alt="Portfolio 3"
+                  loading="lazy"
+                />
+              </div>
+            </article>
+            <article class="works__slide">
+              <div class="works__media">
+                <img
+                  src="img/works/portfolio_4.png"
+                  alt="Portfolio 4"
                   loading="lazy"
                 />
               </div>
@@ -88,12 +97,12 @@
 
         <!-- Next button: `data-carousel-next` hooks to JS -->
         <button
-          class="lastworks__arrow"
+          class="works__arrow"
           type="button"
           data-carousel-next
           aria-label="Next slide"
         >
-          <svg class="lastworks__arrow-icon is-next" viewBox="0 0 30 30">
+          <svg class="works__arrow-icon is-next" viewBox="0 0 30 30">
             <path
               d="M19.533 15l-9.1-9.45c-.577-.6-.577-1.5 0-2.1.578-.6 1.445-.6 2.023 0l10.11 10.5c.29.3.434.75.434 1.05 0 .45-.144.75-.433 1.05l-10.111 10.5c-.29.3-.578.45-1.012.45-.433 0-.722-.15-1.01-.45-.578-.6-.578-1.5 0-2.1l9.1-9.45z"
             ></path>
