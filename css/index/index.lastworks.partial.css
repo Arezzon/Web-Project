@@ -1,0 +1,116 @@
+.lastworks {
+  padding: 60px 0;
+  background-color: var(--ui-dark-shade-color);
+
+  & .lastworks__inner {
+    padding: 0 20px;
+  }
+
+  & .lastworks__header {
+    text-align: center;
+  }
+
+  & .lastworks__title {
+    color: var(--ui-light-shade-color);
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
+    font-weight: 700;
+  }
+
+  & .lastworks__divider {
+    color: var(--ui-dark-accent-color);
+    display: flex;
+    justify-content: center;
+  }
+
+  & .lastworks__subtitle {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    color: var(--ui-light-accent-color);
+  }
+
+  & .lastworks__carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+
+    @media (max-width: 767px) {
+      gap: 12px;
+    }
+  }
+
+  & .lastworks__viewport {
+    overflow: hidden;
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+  }
+
+  & .lastworks__track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.5s ease;
+    will-change: transform;
+    pointer-events: none;
+
+    & > * {
+      pointer-events: auto;
+    }
+  }
+
+  & .lastworks__slide {
+    flex: 0 0 auto;
+  }
+
+  & .lastworks__media {
+    background: #f6f6f6;
+    pointer-events: none;
+    aspect-ratio: 3 / 4;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-position: top;
+      object-fit: cover;
+    }
+  }
+
+  & .lastworks__arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    color: #222;
+    font-size: 28px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    @media (max-width: 767px) {
+      width: 38px;
+      height: 38px;
+      font-size: 24px;
+    }
+  }
+}

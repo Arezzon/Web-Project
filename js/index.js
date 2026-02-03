@@ -1,5 +1,8 @@
 function init() {
   import("./global.header-burger.js");
+  import("./index.lastworks.carousel.js").then(({ initLastWorksCarousel }) => {
+    initLastWorksCarousel();
+  });
 }
 
 const totalPartials = document.querySelectorAll(
