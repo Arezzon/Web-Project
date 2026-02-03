@@ -1,0 +1,164 @@
+.partners {
+  /*
+    Block: .partners
+    - This file uses nesting-style selectors for readability.
+  */
+
+  padding: 60px 0;
+  background-color: var(--ui-dark-shade-color);
+
+  /* Inner wrapper */
+  & .partners__inner {
+    padding: 0 20px;
+  }
+
+  /* Header / title */
+  & .partners__header {
+    text-align: center;
+  }
+
+  & .partners__title {
+    color: var(--ui-light-shade-color);
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
+    font-weight: 700;
+  }
+
+  & .partners__divider {
+    color: var(--ui-dark-accent-color);
+    display: flex;
+    justify-content: center;
+  }
+
+  & .partners__subtitle {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    color: var(--ui-light-accent-color);
+  }
+
+  /* Carousel layout */
+  & .partners__carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+
+    @media (max-width: 767px) {
+      gap: 0; /* remove gap so arrows can overlay */
+    }
+  }
+
+  /* Viewport: the visible area of the carousel */
+  & .partners__viewport {
+    overflow: hidden;
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+  }
+
+  /* Track: holds slides and is translated by JS */
+  & .partners__track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.5s ease;
+    will-change: transform;
+    pointer-events: none; /* viewport handles pointer interactions */
+
+    & > * {
+      pointer-events: auto; /* re-enable events for slide content */
+    }
+  }
+
+  /* Individual slide */
+  & .partners__slide {
+    flex: 0 0 auto;
+  }
+
+  /* Media container: enforces 3:4 aspect ratio and cropping */
+  & .partners__media {
+    background: var(--card-background-color);
+    pointer-events: none;
+    aspect-ratio: 1 / 1; /* force portrait aspect and crop via object-fit */
+
+    & img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* crop large images to fit */
+    }
+  }
+
+  /* Arrow controls */
+  & .partners__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+
+    & .partners__arrow-icon {
+      width: 30px;
+      height: 30px;
+      fill: var(--ui-light-shade-color);
+
+      &.is-prev {
+        transform: scaleX(-1); /* flip horizontally */
+      }
+    }
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    @media (max-width: 767px) {
+      /* Position arrows absolutely so they overlap viewport by half */
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--ui-light-shade-color);
+      opacity: 0.8;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+      aspect-ratio: 1 / 1;
+      z-index: 10; /* place above slides */
+
+      & .partners__arrow-icon {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      /* Position prev arrow: half outside */
+      &[data-carousel-prev] {
+        left: -16px; /* 16px button width, so 8px = half overlaps */
+      }
+
+      /* Position next arrow: half outside */
+      &[data-carousel-next] {
+        right: -16px;
+      }
+
+      &:hover {
+        transform: translateY(-50%) scale(1.05); /* keep vertical centering on hover */
+      }
+    }
+  }
+}
