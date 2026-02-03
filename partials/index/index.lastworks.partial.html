@@ -1,45 +1,103 @@
+<!--
+	Last Works section partial
+	- Simple BEM structure: `.lastworks` block with nested `__*` elements
+	- Contains a small responsive carousel driven by JS (module: js/index.lastworks.carousel.js)
+	- Images are expected to be portrait-style and will be cropped to 3:4 via CSS
+	Note: This file is a partial meant to be included into the page.
+-->
+
 <section class="lastworks" id="lastworks">
-	<div class="lastworks__inner container">
-		<header class="lastworks__header">
-			<h2 class="lastworks__title">Latest Works</h2>
-			<div class="lastworks__divider">
-				<svg xmlns="http://www.w3.org/2000/svg" width="3000px" height="31" style="width: 5%">
-					<path d="M0 15.5 L3000 15.5" style="fill: none; stroke: #bababa; stroke-width: 1px"></path>
-				</svg>
-			</div>
-			<p class="lastworks__subtitle">RYAN'S PASSION IS PHOTOSHOOTS FOR LOOKBOOKS AND COMMERCIALS.</p>
-		</header>
+  <div class="lastworks__inner container">
+    <header class="lastworks__header">
+      <!-- Header / title for the section -->
+      <h2 class="lastworks__title">Latest Works</h2>
+      <div class="lastworks__divider">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="3000px"
+          height="31"
+          style="width: 5%"
+        >
+          <path
+            d="M0 15.5 L3000 15.5"
+            style="fill: none; stroke: #bababa; stroke-width: 1px"
+          ></path>
+        </svg>
+      </div>
+      <p class="lastworks__subtitle">
+        RYAN'S PASSION IS PHOTOSHOOTS FOR LOOKBOOKS AND COMMERCIALS.
+      </p>
+    </header>
 
-		<div class="lastworks__content">
-			<div class="lastworks__carousel" data-carousel data-autoplay="true" data-autoplay-speed="4000">
-				<button class="lastworks__arrow" type="button" data-carousel-prev aria-label="Previous slide">
-					<span aria-hidden="true">‹</span>
-				</button>
+    <!-- Carousel wrapper: `data-carousel` is used by the JS module to initialize behavior -->
+    <div class="lastworks__content">
+      <div
+        class="lastworks__carousel"
+        data-carousel
+        data-autoplay="true"
+        data-autoplay-speed="4000"
+      >
+        <!-- Prev button: `data-carousel-prev` hooks to JS -->
+        <button
+          class="lastworks__arrow"
+          type="button"
+          data-carousel-prev
+          aria-label="Previous slide"
+        >
+          <svg class="lastworks__arrow-icon is-prev" viewBox="0 0 30 30">
+            <path
+              d="M19.533 15l-9.1-9.45c-.577-.6-.577-1.5 0-2.1.578-.6 1.445-.6 2.023 0l10.11 10.5c.29.3.434.75.434 1.05 0 .45-.144.75-.433 1.05l-10.111 10.5c-.29.3-.578.45-1.012.45-.433 0-.722-.15-1.01-.45-.578-.6-.578-1.5 0-2.1l9.1-9.45z"
+            ></path>
+          </svg>
+        </button>
 
-				<div class="lastworks__viewport" data-carousel-viewport>
-					<div class="lastworks__track" data-carousel-track>
-						<article class="lastworks__slide">
-							<div class="lastworks__media">
-								<img src="/img/lastworks/girl_1.png" alt="Illustration 1" loading="lazy" />
-							</div>
-						</article>
-						<article class="lastworks__slide">
-							<div class="lastworks__media">
-								<img src="/img/lastworks/girl_2.png" alt="Illustration 2" loading="lazy" />
-							</div>
-						</article>
-						<article class="lastworks__slide">
-							<div class="lastworks__media">
-								<img src="/img/lastworks/girl_3.png" alt="Illustration 3" loading="lazy" />
-							</div>
-						</article>
-					</div>
-				</div>
+        <div class="lastworks__viewport" data-carousel-viewport>
+          <!-- Track holds slides. `data-carousel-track` is used by the JS to move items -->
+          <div class="lastworks__track" data-carousel-track>
+            <article class="lastworks__slide">
+              <div class="lastworks__media">
+                <img
+                  src="img/lastworks/girl_1.png"
+                  alt="Illustration 1"
+                  loading="lazy"
+                />
+              </div>
+            </article>
+            <article class="lastworks__slide">
+              <div class="lastworks__media">
+                <img
+                  src="img/lastworks/girl_2.png"
+                  alt="Illustration 2"
+                  loading="lazy"
+                />
+              </div>
+            </article>
+            <article class="lastworks__slide">
+              <div class="lastworks__media">
+                <img
+                  src="img/lastworks/girl_3.png"
+                  alt="Illustration 3"
+                  loading="lazy"
+                />
+              </div>
+            </article>
+          </div>
+        </div>
 
-				<button class="lastworks__arrow" type="button" data-carousel-next aria-label="Next slide">
-					<span aria-hidden="true">›</span>
-				</button>
-			</div>
-		</div>
-	</div>
+        <!-- Next button: `data-carousel-next` hooks to JS -->
+        <button
+          class="lastworks__arrow"
+          type="button"
+          data-carousel-next
+          aria-label="Next slide"
+        >
+          <svg class="lastworks__arrow-icon is-next" viewBox="0 0 30 30">
+            <path
+              d="M19.533 15l-9.1-9.45c-.577-.6-.577-1.5 0-2.1.578-.6 1.445-.6 2.023 0l10.11 10.5c.29.3.434.75.434 1.05 0 .45-.144.75-.433 1.05l-10.111 10.5c-.29.3-.578.45-1.012.45-.433 0-.722-.15-1.01-.45-.578-.6-.578-1.5 0-2.1l9.1-9.45z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
