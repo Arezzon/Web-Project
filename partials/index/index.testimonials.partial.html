@@ -1,0 +1,67 @@
+<!--
+  Testimonials section partial
+	- Simple BEM structure: `.testimonials` block with nested `__*` elements
+	Note: This file is a partial meant to be included into the page.
+-->
+
+<section class="testimonials">
+  <div class="testimonials__background" aria-hidden="true"></div>
+  
+  <div class="container">
+    <div class="testimonials__carousel" data-carousel data-autoplay="true" data-autoplay-speed="5000" data-slides-mobile="1" data-slides-desktop="1">
+      
+      <div class="testimonials__viewport" data-carousel-viewport>
+        <div class="testimonials__track" data-carousel-track>
+          
+          <!-- Slide 1 -->
+          <div class="testimonials__slide testimonials__slide--1">
+            <div class="testimonials__content">
+              <div class="testimonials__content-inner">
+                <p class="testimonials__label">TESTIMONIALS</p>
+                <h2 class="testimonials__author">Amanda Li, Vogue</h2>
+                <p class="testimonials__text">
+                  Working with Ryan was an incredible experience. Everything was perfect from the very beginning of the photoshoot. Ryan is very talented in his field and you can really tell that he loves what he does. We absolutely love how all the images turned out and will go back to Ryan for future photoshoots.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonials__slide testimonials__slide--2">
+            <div class="testimonials__content">
+              <div class="testimonials__content-inner">
+                <p class="testimonials__label">TESTIMONIALS</p>
+                <h2 class="testimonials__author">John Smith, Fashion Magazine</h2>
+                <p class="testimonials__text">
+                  Outstanding professionalism and creative vision. Ryan captured exactly what we needed and exceeded all expectations. His attention to detail and ability to work under pressure made our shoot a huge success.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonials__slide testimonials__slide--3">
+            <div class="testimonials__content">
+              <div class="testimonials__content-inner">
+                <p class="testimonials__label">TESTIMONIALS</p>
+                <h2 class="testimonials__author">Sarah Johnson, Elle</h2>
+                <p class="testimonials__text">
+                  A truly remarkable photographer with an eye for beauty and composition. Every shot was perfect, and the final images were breathtaking. I highly recommend Ryan for any professional photography project.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Navigation dots -->
+      <div class="testimonials__dots" data-carousel-dots>
+        <button class="testimonials__dot testimonials__dot--active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+        <button class="testimonials__dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+        <button class="testimonials__dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+      </div>
+
+    </div>
+  </div>
+</section>

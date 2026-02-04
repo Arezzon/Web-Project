@@ -20,6 +20,7 @@
  * - [data-carousel-viewport] - visible area
  * - [data-carousel-prev] - previous button (optional)
  * - [data-carousel-next] - next button (optional)
+ * - [data-carousel-dot] - dot button (optional)
  */
 
 export function initCarousel() {
@@ -31,6 +32,7 @@ export function initCarousel() {
     const prevButton = carousel.querySelector("[data-carousel-prev]");
     const nextButton = carousel.querySelector("[data-carousel-next]");
     const viewport = carousel.querySelector("[data-carousel-viewport]");
+    const dotsContainer = carousel.querySelector("[data-carousel-dots]");
     if (!track || !viewport) return;
 
     let slides = Array.from(track.children);
@@ -97,6 +99,9 @@ export function initCarousel() {
       const offset = currentIndex * (slideWidth + gapValue);
       track.style.transform = `translateX(-${offset}px)`;
       prevTranslate = -offset;
+
+      // Update dots
+      updateDots();
 
       if (!withTransition) {
         // Force reflow
@@ -198,6 +203,35 @@ export function initCarousel() {
 
     // Prevent context menu and dragging images
     viewport.addEventListener("dragstart", (e) => e.preventDefault());
+
+    // Dots navigation
+    const updateDots = () => {
+      if (!dotsContainer) return;
+      const dots = dotsContainer.querySelectorAll("[data-carousel-dot]");
+      const activeSlide = (currentIndex - slidesToShow) % originalCount;
+      
+      dots.forEach((dot, index) => {
+        if (index === activeSlide) {
+          dot.classList.add(dot.className.split(' ')[0] + '--active');
+        } else {
+          dot.classList.remove(dot.className.split(' ')[0] + '--active');
+        }
+      });
+    };
+
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll("[data-carousel-dot]");
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const targetIndex = Number(dot.getAttribute("data-carousel-dot"));
+          stopAutoplay();
+          currentIndex = targetIndex + slidesToShow;
+          isTransitioning = true;
+          update();
+          startAutoplay();
+        });
+      });
+    }
 
     // Autoplay
     const autoplay = carousel.getAttribute("data-autoplay") === "true";

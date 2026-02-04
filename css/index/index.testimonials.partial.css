@@ -1,0 +1,208 @@
+.testimonials {
+  /*
+    Testimonials section styles
+    - Carousel full-bleed container
+    - Slide backgrounds, content grid, and navigation dots
+    Note: this file uses nested selectors so comments target
+    logical blocks for maintainability.
+  */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* Background layer: gradient + overlay to darken images */
+  & .testimonials__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    z-index: -1;
+
+    &::after {
+      content: "";
+    }
+  }
+
+  /* Carousel wrapper - breaks out of the centered container to span full viewport width */
+  & .testimonials__carousel {
+    position: relative;
+    margin: 0 auto;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+  /* Viewport: visible area for slides; handles drag cursor states */
+  & .testimonials__viewport {
+    overflow: hidden;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  /* Track: flex container for slides; transforms are applied here */
+  & .testimonials__track {
+    display: flex;
+    gap: 0;
+    transition: transform 0.5s ease;
+  }
+
+  /* Slide: individual slide container with background image pseudo-element */
+  & .testimonials__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    /* Модифікатори слайдів */
+    &.testimonials__slide--1::before {
+      background-image: url("../../img/testimonials/testimonials_1.png");
+    }
+    &.testimonials__slide--2::before {
+      background-image: url("../../img/testimonials/testimonials_2.png");
+    }
+    &.testimonials__slide--3::before {
+      background-image: url("../../img/testimonials/testimonials_3.png");
+    }
+
+    @media (max-width: 768px) {
+      padding: var(--spacing-lg) var(--spacing-md);
+    }
+  }
+
+  /* Content grid: constrains text to site content width and creates two columns
+     left column hosts the text box, right column remains empty for composition */
+  & .testimonials__content {
+    max-width: var(--ui-content-container, 1200px);
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 600px) 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    position: relative;
+    padding: 100px 0;
+    box-sizing: border-box;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Content inner: the visible card-like text box that sits in the left grid column */
+  & .testimonials__content-inner {
+    background: var(--card-background-color);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 600px;
+
+    @media (max-width: 768px) {
+      padding: var(--spacing-lg);
+    }
+  }
+
+  /* Small label above the author/title */
+  & .testimonials__label {
+    font-size: 14px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--ui-brand-color);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--ui-button-font-family);
+  }
+
+  /* Author/title heading */
+  & .testimonials__author {
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ui-light-shade-color);
+    margin-bottom: var(--spacing-lg);
+
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+    }
+  }
+
+  /* Body text for testimonial */
+  & .testimonials__text {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ui-text-color-light);
+    font-family: var(--ui-text-font-family);
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+  }
+
+  /* Navigation dots: positioned absolutely on top of slides with padding */
+  & .testimonials__dots {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 2;
+    pointer-events: auto;
+  }
+
+  /* Individual dot styles */
+  & .testimonials__dot {
+    width: 40px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    padding: 0;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Active state for dot */
+    &.testimonials__dot--active {
+      background: var(--ui-light-shade-color);
+    }
+
+    @media (max-width: 768px) {
+      width: 30px;
+    }
+  }
+}
