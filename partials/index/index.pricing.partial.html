@@ -1,0 +1,95 @@
+<!--
+  Pricing section partial
+  - Simple BEM structure: `.pricing` block with nested `__*` elements
+  Note: This file is a partial meant to be included into the page.
+-->
+
+<section class="pricing" id="pricing">
+  <div class="pricing__inner container">
+    <header class="pricing__header">
+      <h2 class="pricing__title">Pricing</h2>
+      <div class="pricing__divider">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="3000px"
+          height="31"
+          style="width: 5%"
+        >
+          <path
+            d="M0 15.5 L3000 15.5"
+            style="fill: none; stroke: #bababa; stroke-width: 1px"
+          ></path>
+        </svg>
+      </div>
+      <p class="pricing__subtitle">
+        THE COST OF SHOOTING CAN BE DISCUSSED ACCORDING TO THE CONDITIONS.
+      </p>
+    </header>
+
+    <div class="pricing__grid">
+      <!-- Pricing Card 1 -->
+      <article class="pricing__card">
+        <div class="pricing__card-image">
+          <img src="img/pricing/portraits.png" alt="Portraits" />
+        </div>
+        <div class="pricing__card-content">
+          <h3 class="pricing__card-title">Portraits</h3>
+          <p class="pricing__card-price">from $120/hour</p>
+          <p class="pricing__card-description">
+            Capturing your beauty in every detail. The price includes 3 styles
+            and 20 edited photos per style.
+          </p>
+          <a href="#contact-form" class="pricing__card-button">Learn more</a>
+        </div>
+      </article>
+
+      <!-- Pricing Card 2 -->
+      <article class="pricing__card">
+        <div class="pricing__card-image">
+          <img src="img/pricing/street-style.png" alt="Street Style" />
+        </div>
+        <div class="pricing__card-content">
+          <h3 class="pricing__card-title">Street Style</h3>
+          <p class="pricing__card-price">from $130/hour</p>
+          <p class="pricing__card-description">
+            It is the best option to show your brand in the everyday scenery.
+            Changing tent provided.
+          </p>
+          <a href="#contact-form" class="pricing__card-button">Learn more</a>
+        </div>
+      </article>
+
+      <!-- Pricing Card 3 -->
+      <article class="pricing__card">
+        <div class="pricing__card-image">
+          <img src="img/pricing/events.png" alt="Events" />
+        </div>
+        <div class="pricing__card-content">
+          <h3 class="pricing__card-title">Events</h3>
+          <p class="pricing__card-price">from $150/hour</p>
+          <p class="pricing__card-description">
+            Shooting at your special events: fashion shows, benefit events, gala
+            banquets, etc.
+          </p>
+          <a href="#contact-form" class="pricing__card-button">Learn more</a>
+        </div>
+      </article>
+
+      <!-- Pricing Card 4 -->
+      <article class="pricing__card">
+        <div class="pricing__card-image">
+          <img src="img/pricing/campaigns.png" alt="Campaigns" />
+        </div>
+        <div class="pricing__card-content">
+          <h3 class="pricing__card-title">Campaigns</h3>
+          <p class="pricing__card-price">from $180/hour</p>
+          <p class="pricing__card-description">
+            Shootings for magazines, brands, e-commerce, advertising campaigns,
+            lookbooks, etc.
+          </p>
+          <a href="#contact-form" class="pricing__card-button">Learn more</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
