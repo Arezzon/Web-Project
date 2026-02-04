@@ -115,7 +115,6 @@
   & .testimonials__content-inner {
     background: var(--card-background-color);
     padding: var(--spacing-xl);
-    border-radius: var(--border-radius);
     position: relative;
     z-index: 1;
     box-sizing: border-box;

@@ -1,0 +1,172 @@
+/* contact-form Section Styles
+   Organized with Native CSS Nesting
+*/
+.contact-form {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+  color: var(--ui-light-shade-color);
+  background-color: var(--ui-dark-shade-color);
+
+  /* Background image layer with fixed attachment for parallax */
+  & .contact-form__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../img/contact/man.png");
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  & .container {
+    position: relative;
+    z-index: 1;
+    padding: 0 25px;
+    box-sizing: border-box;
+  }
+
+  /* Two-column grid: left text, right form */
+  & .contact-form__content {
+    display: grid;
+    grid-template-columns: minmax(0, 600px) minmax(0, 600px);
+    gap: var(--spacing-lg);
+    align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+  }
+
+  & .contact-form__text-box {
+    text-align: center;
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+  }
+
+  & .contact-form__title {
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
+    font-weight: 700;
+    letter-spacing: 2.78px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--ui-light-shade-color);
+
+    @media (max-width: 1075px) {
+      font-size: 38px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+  }
+
+  & .contact-form__divider {
+    width: 60px;
+    height: 1px;
+    background: var(--ui-dark-accent-color);
+    margin: var(--spacing-md) auto;
+  }
+
+  & .contact-form__subtitle {
+    font-family: var(--ui-text-font-family);
+    font-size: 14px;
+    letter-spacing: 1.4px;
+    line-height: 26.6px;
+    text-transform: uppercase;
+    color: var(--ui-light-accent-color);
+  }
+
+  /* Right column: form container with dark background */
+  & .contact-form__form-box {
+    background: var(--card-background-color);
+    padding: var(--spacing-xl);
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+      padding: var(--spacing-lg);
+      margin: 0;
+    }
+  }
+
+  /* Form styles */
+  & .contact-form__form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  & .contact-form__field {
+    width: 100%;
+  }
+
+  /* Input and textarea base styles */
+  & .contact-form__input {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: var(--ui-dark-shade-color);
+    border: 1px solid var(--ui-dark-shade-color);
+    color: var(--ui-light-shade-color);
+    font-family: var(--ui-text-font-family);
+    font-size: 15px;
+    transition: border-color var(--transition-speed);
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.54);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--ui-brand-color);
+    }
+  }
+
+  /* Date input specific styles */
+  & .contact-form__input--date {
+    color-scheme: dark;
+    cursor: pointer;
+  }
+
+  /* Textarea specific */
+  & .contact-form__textarea {
+    resize: none;
+    min-height: 80px;
+  }
+
+  /* Submit button */
+  & .contact-form__submit {
+    width: 100%;
+    padding: 19px 21px;
+    background-color: var(--ui-brand-color);
+    color: var(--ui-light-shade-color);
+    border: none;
+    cursor: pointer;
+    font-family: var(--ui-button-font-family);
+    font-weight: var(--ui-button-font-weight);
+    font-size: 12px;
+    letter-spacing: 0.24px;
+    text-transform: var(--ui-button-text-transform);
+    transition: background-color var(--transition-speed);
+
+    &:hover {
+      background-color: var(--ui-light-accent-color);
+    }
+  }
+}

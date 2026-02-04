@@ -1,0 +1,58 @@
+<!--
+  contact-form section partial
+	- Simple BEM structure: `.contact-form` block with nested `__*` elements
+	Note: This file is a partial meant to be included into the page.
+-->
+<section class="contact-form" id="contact-form">
+  <div class="contact-form__background" aria-hidden="true"></div>
+  <div class="container">
+    <div class="contact-form__content">
+      <div></div>
+      <div class="contact-form__form-box">
+        <div class="contact-form__text-box">
+          <h2 class="contact-form__title">Let's start a conversation.</h2>
+          <div class="contact-form__divider"></div>
+          <p class="contact-form__subtitle">
+            RYAN IS LOOKING FORWARD TO HEARING MORE ABOUT YOUR PROJECT AND
+            IDEAS.
+          </p>
+        </div>
+        <form class="contact-form__form">
+          <div class="contact-form__field">
+            <input
+              type="text"
+              class="contact-form__input"
+              placeholder="Enter your full name*"
+              required
+            />
+          </div>
+          <div class="contact-form__field">
+            <input
+              type="tel"
+              class="contact-form__input"
+              placeholder="Enter your phone number*"
+              required
+            />
+          </div>
+          <div class="contact-form__field">
+            <input
+              type="datetime-local"
+              class="contact-form__input contact-form__input--date"
+              value="Choose date"
+            />
+          </div>
+          <div class="contact-form__field">
+            <textarea
+              class="contact-form__input contact-form__textarea"
+              placeholder="Leave your message"
+              rows="3"
+            ></textarea>
+          </div>
+          <button type="submit" class="contact-form__submit">
+            Request a quote
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
