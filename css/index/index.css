@@ -1,8 +1,10 @@
 @import "../global/global.css";
 @import "../index/index.header-hero.partial.css";
 @import "../index/index.lastworks.partial.css";
+@import "../index/index.cta.partial.css";
 @import "../index/index.works.partial.css";
 @import "../index/index.partners.partial.css";
+@import "../index/index.cta-2.partial.css";
 @import "../index/index.testimonials.partial.css";
 @import "../index/index.faq.partial.css";
 @import "../global/global.header-nav.partial.css";
