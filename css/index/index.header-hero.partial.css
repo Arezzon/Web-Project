@@ -1,9 +1,13 @@
 /* --- Hero Section --- */
 .hero {
+  width: 100%;
+  aspect-ratio: 16/9; /* You may need to adjust this ratio to match your image dimensions */
+  min-height: 600px; /* Ensure content fits on smaller screens */
+  max-height: 690px; /* Stop growing after reaching typical large screen size */
   background:
-    url("../../img/ryan_background.png") 44.69% 65% / cover no-repeat,
+    url("../../img/ryan_background.png") 50% 50% / contain no-repeat,
     var(--ui-dark-shade-color);
-  background-size: 109%;
+  background-size: contain;
 
   @media (max-width: 768px) {
     background-image: none;
@@ -16,8 +20,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh;
-    padding: 100px var(--spacing-sm);
+    padding: min(100px, 5%) var(--spacing-sm);
+    padding-bottom: 80px; /* Extra space for footer icon */
+    height: 100%;
     width: 100%;
     position: relative;
     z-index: 2;
