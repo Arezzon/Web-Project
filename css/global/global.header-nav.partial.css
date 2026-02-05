@@ -3,19 +3,32 @@
   background-color: var(--ui-dark-shade-color);
   width: 100%;
   min-height: var(--header-height);
+  /* Safari/iOS flex support */
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
   align-items: center;
   z-index: 100;
   /* Fix for iOS flex layout */
   position: relative;
+  -webkit-flex-shrink: 0;
   flex-shrink: 0;
 
   /* Main container within the header */
   .header__container {
     width: 100%;
     padding: 30px var(--spacing-sm);
+    /* Safari/iOS flex support */
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
     justify-content: space-between;
     /* iOS Safe Area Support */
     padding-top: max(30px, calc(env(safe-area-inset-top) + 30px));
@@ -49,15 +62,19 @@
       transition: var(--transition-speed);
       position: absolute;
       left: 0;
+      -webkit-transform-origin: center;
       transform-origin: center;
 
       &:nth-child(1) {
+        -webkit-transform: translateY(-8px);
         transform: translateY(-8px);
       }
       &:nth-child(2) {
+        -webkit-transform: translateY(0);
         transform: translateY(0);
       }
       &:nth-child(3) {
+        -webkit-transform: translateY(8px);
         transform: translateY(8px);
       }
     }
@@ -67,12 +84,14 @@
       z-index: 101;
 
       .header__burger-line:nth-child(1) {
+        -webkit-transform: translateY(0) rotate(45deg);
         transform: translateY(0) rotate(45deg);
       }
       .header__burger-line:nth-child(2) {
         opacity: 0;
       }
       .header__burger-line:nth-child(3) {
+        -webkit-transform: translateY(0) rotate(-45deg);
         transform: translateY(0) rotate(-45deg);
       }
     }
@@ -80,15 +99,26 @@
 
   /* Navigation menu wrapper */
   .header__nav {
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
     align-items: center;
     gap: var(--spacing-xl);
 
     /* List of nav links */
     .nav__list {
+      display: -webkit-box;
+      display: -webkit-flex;
       display: flex;
       list-style: none;
       gap: var(--spacing-md);
+      
+      /* Fallback for older Safari */
+      & > * + * {
+        margin-left: var(--spacing-md);
+      }
     }
 
     /* Individual navigation links */
@@ -106,9 +136,16 @@
     /* Social icons container */
     .header__socials {
       .socials__list {
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
         list-style: none;
         gap: 12px;
+        
+        /* Fallback for older Safari */
+        & > * + * {
+          margin-left: 12px;
+        }
       }
 
       .socials__link {
@@ -116,8 +153,14 @@
         height: 30px;
         color: var(--ui-brand-color);
         transition: opacity 0.3s ease;
+        display: -webkit-box;
+        display: -webkit-flex;
         display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
         justify-content: center;
 
         &:hover {
@@ -148,13 +191,23 @@
       background-color: var(--ui-dark-shade-color);
       overflow: hidden;
       transition: height var(--transition-speed);
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
       flex-direction: column;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
       justify-content: flex-start;
       gap: var(--spacing-lg);
       z-index: 1000;
 
       .nav__list {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
         flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
         align-items: center;
         gap: var(--spacing-md);
         opacity: 0;
