@@ -3,7 +3,7 @@
    - Uses Flexbox on tablets to center the orphan items in the last row
 */
 .features {
-  padding: 80px 0 130px; /* Simplified shorthand */
+  padding: 120px 0 60px; /* Simplified shorthand */
   background-color: var(--ui-dark-shade-color);
 
   @media (max-width: 768px) {
