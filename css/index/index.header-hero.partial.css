@@ -22,6 +22,8 @@
     justify-content: flex-start;
     padding: min(100px, 5%) var(--spacing-sm);
     padding-bottom: 80px; /* Extra space for footer icon */
+    /* iOS Safe Area - додає відступ зверху з урахуванням header safe area */
+    padding-top: max(min(100px, 5%), calc(env(safe-area-inset-top) + min(100px, 5%)));
     height: 100%;
     width: 100%;
     position: relative;

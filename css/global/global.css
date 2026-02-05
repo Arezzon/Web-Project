@@ -16,6 +16,7 @@
 
 body {
   overflow-x: hidden;
+  background-color: var(--ui-dark-shade-color);
 }
 
 body.no-scroll {
