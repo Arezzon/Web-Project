@@ -141,7 +141,7 @@
     font-family: "Playfair Display", serif;
     font-size: 42px;
     font-weight: 700;
-    line-height: 1.2;
+    letter-spacing: 2.16px;
     color: var(--ui-light-shade-color);
     margin-bottom: var(--spacing-lg);
 
