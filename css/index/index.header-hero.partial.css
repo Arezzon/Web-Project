@@ -1,6 +1,8 @@
 /* --- Hero Section --- */
 .hero {
   width: 100%;
+  display: flex;
+  flex-direction: column;
   aspect-ratio: 16/9; /* You may need to adjust this ratio to match your image dimensions */
   min-height: 600px; /* Ensure content fits on smaller screens */
   max-height: 690px; /* Stop growing after reaching typical large screen size */
@@ -17,11 +19,11 @@
   /* Layout and other properties moved to sub-elements */
   .hero__container {
     display: grid;
+    flex: 1; /* Займає весь доступний простір, штовхаючи футер вниз */
     align-items: center;
     justify-items: start; /* Content aligned to left on desktop */
     padding: min(100px, 5%) var(--spacing-sm);
-    padding-bottom: 80px; /* Extra space for footer icon */
-    height: 100%;
+    padding-bottom: 20px; /* Зменшено, бо футер тепер у потоці */
     width: 100%;
     position: relative;
     z-index: 2;
@@ -116,14 +118,21 @@
 
   /* Hero bottom icon - Positioned at the very bottom of the section */
   .hero__footer {
-    position: absolute;
-    bottom: 1px;
-    left: 30%;
-    transform: translateX(-50%);
+    position: relative;
+    width: fit-content;
     z-index: 3;
 
+    /* Flex-tweak */
+    margin-top: auto;
+
+    /* Desktop positioning */
+    margin-left: 28%;
+    margin-bottom: 40px;
+
     @media (max-width: 768px) {
-      left: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
     }
 
     .hero__icon {
@@ -131,6 +140,10 @@
       height: auto;
       opacity: 0.8;
       animation: bounce 2s infinite;
+
+      @media (max-width: 768px) {
+        margin-top: 80px;
+      }
     }
   }
 }
