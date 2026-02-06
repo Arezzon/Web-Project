@@ -140,7 +140,7 @@
     }
 
     .header__nav {
-      position: fixed;
+      position: absolute;
       top: var(--header-height);
       left: 0;
       width: 100%;
